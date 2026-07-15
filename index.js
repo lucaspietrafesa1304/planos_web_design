@@ -291,7 +291,7 @@
         // Mailto Link
         const mailSubject = encodeURIComponent(`Cotización de Proyecto Web - ${name}`);
         const mailBody = encodeURIComponent(`Nombre/Empresa: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp || 'N/A'}\n\nMensaje:\n${message}`);
-        const mailtoLink = `mailto:hola@planos.studio?subject=${mailSubject}&body=${mailBody}`;
+        const mailtoLink = `mailto:planoswebdesign@gmail.com?subject=${mailSubject}&body=${mailBody}`;
 
         // Reset and feedback
         statusEl.className = 'form-status success';
