@@ -91,181 +91,50 @@
     });
   });
 
-  // --- 4. Lenis Smooth Scroll Setup ---
-  let lenisInstance;
-  if (typeof Lenis !== 'undefined') {
-    lenisInstance = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1.0,
-      smoothTouch: false,
+  // --- 4. Progressive Web Scroll Reveal (Intersection Observer) ---
+  const revealElements = document.querySelectorAll('.reveal-el');
+  
+  // Set initial hidden styles dynamically (progressive enhancement)
+  revealElements.forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translate3d(0, 35px, 0)';
+    el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    // Stagger slightly if elements are adjacent cards in a grid
+    let delay = 0;
+    if (el.classList.contains('service-card') || el.classList.contains('process-step') || el.classList.contains('why-us-item') || el.classList.contains('project-item') || el.classList.contains('pillar')) {
+      delay = (index % 4) * 0.1;
+    }
+    el.style.transitionDelay = `${delay}s`;
+  });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translate3d(0, 0, 0)';
+          // Stop observing once animated to avoid recalculating
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null, // relative to viewport
+      threshold: 0.05, // trigger early (when 5% of element is visible)
+      rootMargin: '0px 0px -20px 0px'
     });
 
-    function raf(time) {
-      lenisInstance.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    revealElements.forEach((el) => {
+      observer.observe(el);
+    });
+  } else {
+    // Fallback for extremely old browsers
+    revealElements.forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'translate3d(0, 0, 0)';
+    });
   }
 
-  // --- 5. GSAP ScrollTrigger Animations & Lenis Sync ---
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Sync Lenis scroll updates with ScrollTrigger
-    if (lenisInstance) {
-      lenisInstance.on('scroll', ScrollTrigger.update);
-    }
-
-    // Hero Entry Animation
-    const heroTimeline = gsap.timeline();
-    
-    heroTimeline.from('.hero-metadata .mono-meta', {
-      opacity: 0,
-      y: -15,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-    
-    heroTimeline.from('.hero-title', {
-      opacity: 0,
-      y: 40,
-      duration: 1.2,
-      ease: 'power4.out'
-    }, '-=0.5');
-    
-    heroTimeline.from('.hero-description', {
-      opacity: 0,
-      y: 20,
-      duration: 1.0,
-      ease: 'power3.out'
-    }, '-=0.8');
-    
-    heroTimeline.from('.hero-cta-group .btn', {
-      opacity: 0,
-      y: 15,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: 'power3.out'
-    }, '-=0.8');
-
-    heroTimeline.from('.hero-blueprint-indicator', {
-      opacity: 0,
-      x: 30,
-      duration: 1.0,
-      ease: 'power3.out'
-    }, '-=0.8');
-
-    // Services Card Reveals (Linked to ScrollTrigger)
-    gsap.from('.service-card', {
-      scrollTrigger: {
-        trigger: '.services-section',
-        start: 'top 85%',
-      },
-      opacity: 0,
-      y: 35,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out'
-    });
-
-    // Process Steps Reveals
-    gsap.from('.process-step', {
-      scrollTrigger: {
-        trigger: '.process-section',
-        start: 'top 85%',
-      },
-      opacity: 0,
-      y: 35,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out'
-    });
-
-    // Why Choose Us Reveals
-    gsap.from('.why-us-item', {
-      scrollTrigger: {
-        trigger: '.why-us-section',
-        start: 'top 85%',
-      },
-      opacity: 0,
-      y: 35,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out'
-    });
-
-    // Portfolio Items Reveals
-    gsap.from('.project-item', {
-      scrollTrigger: {
-        trigger: '.portfolio-section',
-        start: 'top 80%',
-      },
-      opacity: 0,
-      y: 45,
-      duration: 1.0,
-      stagger: 0.15,
-      ease: 'power3.out'
-    });
-
-    // Manifesto Section Pillars Reveals
-    gsap.from('.manifesto-lead', {
-      scrollTrigger: {
-        trigger: '.manifesto-section',
-        start: 'top 80%',
-      },
-      opacity: 0,
-      y: 30,
-      duration: 1.0,
-      ease: 'power3.out'
-    });
-
-    gsap.from('.pillar', {
-      scrollTrigger: {
-        trigger: '.manifesto-pillars',
-        start: 'top 85%',
-      },
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: 'power3.out'
-    });
-
-    // Contact Form Panel Reveals
-    gsap.from('.contact-info-panel', {
-      scrollTrigger: {
-        trigger: '.contact-section',
-        start: 'top 80%',
-      },
-      opacity: 0,
-      x: -40,
-      duration: 1.0,
-      ease: 'power3.out'
-    });
-
-    gsap.from('.contact-form-panel', {
-      scrollTrigger: {
-        trigger: '.contact-section',
-        start: 'top 80%',
-      },
-      opacity: 0,
-      x: 40,
-      duration: 1.0,
-      ease: 'power3.out'
-    }, '-=0.8');
-
-    // Refresh ScrollTrigger after all initial setups
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 500);
-  }
-
-  // --- 6. Active Nav Link Tracking on Scroll ---
+  // --- 5. Active Nav Link Tracking on Scroll ---
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-menu a');
 
@@ -289,7 +158,7 @@
   }
   window.addEventListener('scroll', trackActiveNav);
 
-  // --- 7. Contact Form Simulation & Redirection ---
+  // --- 6. Contact Form Simulation & Redirection ---
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
   const submitBtn = document.getElementById('submit-btn');

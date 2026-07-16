@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="index.css?v=202607151">
+  <link rel="stylesheet" href="index.css?v=202607161">
 </head>
 <body>
 
@@ -29,14 +29,18 @@
 
   <!-- Technical Background Grid -->
   <div class="blueprint-grid-overlay"></div>
-  <div class="interactive-mesh-bg" id="mesh-bg"></div>
+  
+  <!-- GPU Optimized Background Glow Balls -->
+  <div class="interactive-mesh-bg" id="mesh-bg">
+    <div class="glow-ball glow-ball-1" id="glow-ball-1"></div>
+    <div class="glow-ball glow-ball-2" id="glow-ball-2"></div>
+  </div>
 
   <!-- Header / Navigation -->
   <header class="main-header">
     <div class="header-inner">
       <a href="#" class="brand-logo">
         <div class="logo-container">
-          <!-- Modern & Simple Architectural SVG logo -->
           <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="5" y="5" width="30" height="30" stroke="var(--accent)" stroke-width="2"/>
             <line x1="5" y1="20" x2="35" y2="20" stroke="var(--gold)" stroke-width="1" stroke-dasharray="2 2"/>
@@ -80,11 +84,11 @@
         <h1 class="hero-title">
           Construimos <span class="accent-serif">estructuras</span> <br>
           digitales elegantes y <br>
-          <span class="accent-glow">píxel-perfect.</span>
+          <span class="accent-glow">a medida.</span>
         </h1>
         
         <p class="hero-description">
-          Diseño y desarrollo web exclusivo para marcas que exigen distinción visual, animaciones fluidas y rendimiento técnico impecable.
+          Diseño y desarrollo web exclusivo para marcas que exigen distinción visual, animaciones fluidas y rendimiento técnico.
         </p>
         
         <div class="hero-cta-group">
@@ -113,7 +117,7 @@
         <div class="services-grid">
           
           <!-- Card 1 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">01.</div>
             <h3 class="card-title">Diseño UX/UI</h3>
             <p class="card-desc">Moderno e intuitivo.</p>
@@ -121,7 +125,7 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">02.</div>
             <h3 class="card-title">Responsive</h3>
             <p class="card-desc">PC, móvil y tablet.</p>
@@ -129,7 +133,7 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">03.</div>
             <h3 class="card-title">Rediseño de Logo</h3>
             <p class="card-desc">Optimización y modernización de identidad visual.</p>
@@ -137,7 +141,7 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">04.</div>
             <h3 class="card-title">Canales</h3>
             <p class="card-desc">Integración con Google Maps y WhatsApp.</p>
@@ -145,7 +149,7 @@
           </div>
 
           <!-- Card 5 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">05.</div>
             <h3 class="card-title">Formularios</h3>
             <p class="card-desc">Captación de leads.</p>
@@ -153,7 +157,7 @@
           </div>
 
           <!-- Card 6 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">06.</div>
             <h3 class="card-title">Mantenimiento</h3>
             <p class="card-desc">Sitio seguro y siempre actualizado.</p>
@@ -161,7 +165,7 @@
           </div>
 
           <!-- Card 7 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">07.</div>
             <h3 class="card-title">30 días de Soporte</h3>
             <p class="card-desc">Post-lanzamiento.</p>
@@ -169,7 +173,7 @@
           </div>
 
           <!-- Card 8 -->
-          <div class="service-card">
+          <div class="service-card reveal-el">
             <div class="card-num">08.</div>
             <h3 class="card-title">Dominio/Hosting</h3>
             <p class="card-desc">Gestión opcional.</p>
@@ -190,31 +194,31 @@
         
         <div class="process-grid">
           
-          <div class="process-step">
+          <div class="process-step reveal-el">
             <span class="process-step-num">ETAPA 01</span>
             <h3 class="process-step-title">Relevo</h3>
             <p class="process-step-desc">Investigamos los objetivos de tu negocio, tu competencia y definimos el alcance estructural.</p>
           </div>
 
-          <div class="process-step">
+          <div class="process-step reveal-el">
             <span class="process-step-num">ETAPA 02</span>
             <h3 class="process-step-title">Diseño</h3>
             <p class="process-step-desc">Trazamos la estructura visual (UX/UI) y definimos la estética, paletas de colores y tipografías.</p>
           </div>
 
-          <div class="process-step">
+          <div class="process-step reveal-el">
             <span class="process-step-num">ETAPA 03</span>
             <h3 class="process-step-title">Review</h3>
             <p class="process-step-desc">Evaluamos en conjunto el prototipo interactivo para realizar ajustes finos antes del código final.</p>
           </div>
 
-          <div class="process-step">
+          <div class="process-step reveal-el">
             <span class="process-step-num">ETAPA 04</span>
             <h3 class="process-step-title">Entrega</h3>
             <p class="process-step-desc">Programamos la web optimizada y la desplegamos en tu hosting lista para recibir usuarios.</p>
           </div>
 
-          <div class="process-step">
+          <div class="process-step reveal-el">
             <span class="process-step-num">ETAPA 05</span>
             <h3 class="process-step-title">Soporte</h3>
             <p class="process-step-desc">Acompañamos el lanzamiento con 30 días de asistencia técnica gratuita para tu tranquilidad.</p>
@@ -224,7 +228,7 @@
       </div>
     </section>
 
-    <!-- Why Choose Us Section (Expanded & Filled) -->
+    <!-- Why Choose Us Section -->
     <section class="why-us-section" id="elegirnos">
       <div class="container">
         <div class="section-header">
@@ -235,7 +239,7 @@
         <div class="why-us-grid">
           
           <!-- Differential 1 -->
-          <div class="why-us-item">
+          <div class="why-us-item reveal-el">
             <h3 class="why-us-title">Atención</h3>
             <p class="why-us-desc">
               Comunicación directa y constante durante todo el proyecto. Sin intermediarios ni demoras, resolvemos tus inquietudes de inmediato y te informamos en cada avance estructural.
@@ -243,7 +247,7 @@
           </div>
 
           <!-- Differential 2 -->
-          <div class="why-us-item">
+          <div class="why-us-item reveal-el">
             <h3 class="why-us-title">Puntualidad</h3>
             <p class="why-us-desc">
               Respeto estricto de los plazos de entrega pactados. Entendemos que el tiempo es un activo crítico para tu negocio; por eso cumplimos de forma estricta con cada cronograma establecido.
@@ -251,7 +255,7 @@
           </div>
 
           <!-- Differential 3 -->
-          <div class="why-us-item">
+          <div class="why-us-item reveal-el">
             <h3 class="why-us-title">Resultados</h3>
             <p class="why-us-desc">
               Foco total en conversión. Diseñamos estructuras que no solo se ven elegantes, sino que están optimizadas para transformar el tráfico web en prospectos comerciales y cotizaciones reales.
@@ -259,7 +263,7 @@
           </div>
 
           <!-- Differential 4 -->
-          <div class="why-us-item">
+          <div class="why-us-item reveal-el">
             <h3 class="why-us-title">Código Puro</h3>
             <p class="why-us-desc">
               Rendimiento y velocidad incomparables. Desarrollamos sin plantillas prefabricadas, lo que garantiza tiempos de carga instantáneos y una excelente optimización técnica para SEO en buscadores.
@@ -281,9 +285,8 @@
         <div class="portfolio-grid">
           
           <!-- Project 1 -->
-          <div class="project-item">
+          <div class="project-item reveal-el">
             <div class="project-media">
-              <!-- Real mockup image generated instead of SVG -->
               <img src="assets/nomada.jpg" alt="Nómada Travel Agency Mockup" class="project-preview-img">
             </div>
             <div class="project-info">
@@ -294,9 +297,8 @@
           </div>
 
           <!-- Project 2 -->
-          <div class="project-item">
+          <div class="project-item reveal-el">
             <div class="project-media">
-              <!-- Real mockup image generated instead of SVG -->
               <img src="assets/restaurante.jpg" alt="911 Restaurante Mockup" class="project-preview-img">
             </div>
             <div class="project-info">
@@ -322,17 +324,17 @@
             Creemos que una página web no es solo código ni solo decoración; es una estructura viva. Igual que un arquitecto dibuja planos rigurosos antes de verter hormigón, nosotros diseñamos el flujo de navegación, la jerarquía visual y la interactividad con precisión matemática antes de escribir el primer píxel.
           </p>
           <div class="manifesto-pillars">
-            <div class="pillar">
+            <div class="pillar reveal-el">
               <span class="pillar-num">01 / RIGOR</span>
               <h4 class="pillar-title">Precisión Estructural</h4>
               <p>Cada elemento tiene una razón de ser y una posición geométrica óptima en la pantalla.</p>
             </div>
-            <div class="pillar">
+            <div class="pillar reveal-el">
               <span class="pillar-num">02 / FLUIDEZ</span>
               <h4 class="pillar-title">Movimiento Natural</h4>
               <p>Las animaciones deben sentirse orgánicas, acelerando y frenando con físicas reales.</p>
             </div>
-            <div class="pillar">
+            <div class="pillar reveal-el">
               <span class="pillar-num">03 / VELOCIDAD</span>
               <h4 class="pillar-title">Optimización Pura</h4>
               <p>Eliminamos lo innecesario para lograr velocidades de carga instantáneas en móviles.</p>
@@ -351,7 +353,7 @@
         </div>
         
         <div class="contact-grid">
-          <div class="contact-info-panel">
+          <div class="contact-info-panel reveal-el">
             <h3 class="panel-subtitle">¿Tienes una idea en mente?</h3>
             <p class="panel-text">
               Estamos disponibles para nuevos proyectos y rediseños estratégicos. Escríbenos directamente o completa el formulario.
@@ -383,7 +385,7 @@
             </div>
           </div>
           
-          <div class="contact-form-panel">
+          <div class="contact-form-panel reveal-el">
             <form class="blueprint-form" id="contact-form">
               <div class="form-row">
                 <div class="form-group">
@@ -462,12 +464,7 @@
     </div>
   </footer>
 
-  <!-- CDN scripts: GSAP & Lenis Smooth Scroll -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-  
   <!-- Custom JS -->
-  <script src="index.js?v=202607151"></script>
+  <script src="index.js?v=202607161"></script>
 </body>
 </html>
