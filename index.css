@@ -5,22 +5,22 @@
 
 :root {
   /* Colors */
-  --bg: #FAF6F0;          /* Crema (Fondo principal, muy suave y orgánico) */
-  --bg-2: #ffffff;        /* Blanco puro (Para tarjetas y elementos que contrasten) */
-  --bg-3: #E8DCC8;        /* Beige cálido (Bordes de tarjetas y divisiones sutiles) */
-  --ink: #2D2420;         /* Marrón carbón (Textos principales y títulos) */
-  --ink-soft: #5A4E48;    /* Carbón suave (Párrafos y descripciones secundarias) */
-  --ink-mute: #A69790;    /* Tono apagado para especificaciones técnicas */
+  --bg: #f5f2eb;         /* Elegant warm cream background */
+  --bg-2: #ffffff;       /* Pure white for cards (contrasts with cream) */
+  --bg-3: #eae5d8;       /* Sand border highlight / grid line */
+  --ink: #161c1a;        /* Deep charcoal for readable text */
+  --ink-soft: #4a5451;   /* Soft charcoal readability */
+  --ink-mute: #8ca09b;   /* Low-contrast tech specifications */
   
-  --accent: #7C4A3C;      /* Terracota oscuro (Botones principales, números 01, detalles activos) */
-  --accent-soft: rgba(124, 74, 60, 0.1); /* Terracota sutil para fondos de botones y cursor */
-  --gold: #E8DCC8;        /* Beige cálido (Para las líneas del fondo de planos y brújula) */
-  --gold-soft: rgba(232, 220, 200, 0.1);
+  --accent: #d68c45;     /* Warm amber/orange-gold */
+  --accent-soft: rgba(214, 140, 69, 0.12);
+  --gold: #c49a5b;       /* Premium Gold highlight */
+  --gold-soft: rgba(196, 154, 91, 0.12);
   
   /* Grids & Lines */
-  --line: rgba(124, 74, 60, 0.03);      /* Líneas de plano sutiles terracota */
-  --line-gold: rgba(232, 220, 200, 0.06); /* Líneas estructurales beige */
-  --line-solid: rgba(45, 36, 32, 0.06);   /* Líneas sólidas marrón carbón */
+  --line: rgba(214, 140, 69, 0.05);     /* Warm amber grid line */
+  --line-gold: rgba(196, 154, 91, 0.08); /* Gold structural line */
+  --line-solid: rgba(22, 28, 26, 0.08);  /* Solid charcoal boundary line */
   
   /* Fonts */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -878,7 +878,7 @@ section {
 }
 
 .form-group input, .form-group textarea {
-  background-color: rgba(250, 246, 240, 0.4);
+  background-color: rgba(245, 242, 235, 0.4);
   border: 1px solid var(--line-solid);
   padding: 1rem;
   color: var(--ink);
@@ -914,7 +914,7 @@ section {
 }
 
 .main-footer {
-  background-color: var(--bg-3);
+  background-color: #eae5d8;
   padding: 2.5rem 0 1.5rem 0; /* tight footer padding */
   border-top: 1px solid var(--line-solid);
   margin-top: auto; /* fits flexbox layout */
